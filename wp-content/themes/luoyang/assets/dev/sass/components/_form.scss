@@ -1,0 +1,103 @@
+/*------------------------------------
+form
+------------------------------------*/
+
+.form-control, .custom-select,.custom-file, .custom-file-input, .custom-file-label {
+  height: calc(2.25rem + 12px);
+  border: 1px solid $border-color;
+  &:focus{
+    box-shadow: none;
+    border-color: $dark;
+  }
+}
+
+.form-inline{
+  .form-control{
+    height: calc(2.25rem + 8px);
+  }
+}
+
+.custom-file{
+  border: none;
+}
+
+.custom-file-label {
+  padding: .65rem .75rem;
+  &:after{
+    height: 2.85rem;
+    padding: inherit;
+    background: lighten($border-color, 7%);
+    border-radius: 0 .15rem .15rem 0;
+  }
+}
+
+.icon-field,
+.icon-field-right {
+  position: relative;
+  i{
+    user-select: none;
+    cursor: default;
+    position: absolute;
+    color: $gray-dark;
+  }
+}
+
+.icon-field {
+  i{
+    top: 15px;
+    left: 15px;
+  }
+  input{
+    padding-left: 45px;
+  }
+}
+
+.icon-field-right {
+  i{
+    top: 15px;
+    right: 15px;
+  }
+  input{
+    padding-right: 45px;
+  }
+}
+
+.custom-control-label::before,
+.custom-control-label::after{
+  top: .1rem;
+  left: -1.5rem;
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.custom-control-label::before{
+  border: 1px solid $border-color;
+}
+
+.custom-control-label{
+  padding-left: 10px;
+}
+
+.custom-file-input:focus~.custom-file-label,
+.custom-control-input:focus~.custom-control-label::before{
+  box-shadow: none;
+
+}
+
+.custom-control-input:checked~.custom-control-label::before,
+.custom-control-input:focus:not(:checked)~.custom-control-label::before{
+  border: 1px solid $border-color;
+}
+
+.custom-select {
+  background: url('../img/select-arrow.svg') no-repeat right .75rem center/8px 10px;
+  background-color: $white;
+}
+
+
+
+@media  (max-width: 767px) {
+  .form-inline .form-control {
+    height: calc(2.25rem + 0px);
+  }
+}

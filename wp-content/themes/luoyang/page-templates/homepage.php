@@ -5,6 +5,11 @@ Template Name: Homepage
 
  */
 
+use HasinHayder\WPHelper\Modules\CustomPosts;
+use HasinHayder\WPHelper\Modules\SinglePost;
+use HasinHayder\WPHelper\Modules\Taxonomy;
+use HasinHayder\WPHelper\WPHelper;
+
 ?>
 
  
@@ -20,13 +25,18 @@ get_header();
             <div class="col-md-6">
                 <!-- heading -->
                 <h1 class="mb-5">
-                    We are Luoyang !
+                    <?php
+                    the_title();
+                    ?>
                 </h1>
 
                 <!-- subheading -->
-                <p class="text-muted mb-4 font-size-20">
+                <?php
+                    the_content();
+                ?>
+                <!-- <p class="text-muted mb-4 font-size-20">
                     Creativity doesn't wait for that perfect moment. It fashions its own perfect moments out of ordinary ones.
-                </p>
+                </p> -->
             </div>
         </div>
     </div>
@@ -38,14 +48,25 @@ get_header();
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="text-center">
+                    <?php
+                    $lwhhl_terms = Taxonomy::get_all_terms('ptag',true,'name','desc',WPHELPER_TAXONOMY_ARRAY);
+                    if (count($lwhhl_terms)>0) {
+                    ?>
                     <ul class="portfolio-filter">
                         <li class="active"><a href="#" data-filter="*"> All</a></li>
-                        <li><a href="#" data-filter=".cat1">printing</a></li>
-                        <li><a href="#" data-filter=".cat2">Web</a></li>
-                        <li><a href="#" data-filter=".cat3">illustration</a></li>
-                        <li><a href="#" data-filter=".cat4">media</a></li>
-                        <li><a href="#" data-filter=".cat5">crafts</a></li>
+                        <?php
+                        foreach($lwhhl_terms as $lwhhl_term) {
+                        ?>
+                        <li>
+                            <a href="#" data-filter=".<?php echo esc_attr($lwhhl_term['slug']) ; ?>">
+                            <?php echo esc_html($lwhhl_term['name']) ; ?>
+                            </a>
+                        </li>
+                        <?php
+                        }
+                        ?>
                     </ul>
+                    <?php } ?>
                 </div>
 
                 <div class="portfolio-grid portfolio-masonry portfolio-gallery grid-3 gutter">

@@ -9,7 +9,7 @@ class Posts {
     public static function set_offset( $offset = 0 ) {
         self::$offset = $offset;
     }
-    private static function get_posts( $wp_query, $return_type = WPHELPER_POSTS_FETCH_OBJECT ) {
+    protected static function get_posts( $wp_query, $return_type = WPHELPER_POSTS_FETCH_OBJECT ) {
         $_posts = array();
         $post_query = $wp_query;
         while ( $post_query->have_posts() ) {
@@ -33,7 +33,7 @@ class Posts {
             'offset'         => self::$offset,
             'post__not_in'   => $excluded_post_ids,
         ) );
-        $_posts = self::get_posts( $post_query, $return_type );
+        $_posts = static::get_posts( $post_query, $return_type );
         return $_posts;
     }
 
@@ -47,7 +47,7 @@ class Posts {
             'post__not_in' => $excluded_post_ids,
             'offset'       => self::$offset,
         ) );
-        $_posts = self::get_posts( $post_query, $return_type );
+        $_posts = static::get_posts( $post_query, $return_type );
         return $_posts;
     }
 
@@ -61,7 +61,7 @@ class Posts {
             'post__not_in' => $excluded_post_ids,
             'offset'       => self::$offset,
         ) );
-        $_posts = self::get_posts( $post_query, $return_type );
+        $_posts = static::get_posts( $post_query, $return_type );
         return $_posts;
     }
 
@@ -72,7 +72,7 @@ class Posts {
             'ignore_sticky_posts' => $skip_sticky,
             'orderby'             => 'post__in',
         ) );
-        $_posts = self::get_posts( $post_query, $return_type );
+        $_posts = static::get_posts( $post_query, $return_type );
         return $_posts;
     }
 
@@ -85,7 +85,7 @@ class Posts {
             'offset'         => self::$offset,
             'post__not_in'   => $excluded_post_ids,
         ) );
-        $_posts = self::get_posts( $post_query, $return_type );
+        $_posts = static::get_posts( $post_query, $return_type );
         return $_posts;
     }
 
@@ -98,7 +98,7 @@ class Posts {
             'offset'         => self::$offset,
             'post__not_in'   => $excluded_post_ids,
         ) );
-        $_posts = self::get_posts( $post_query, $return_type );
+        $_posts = static::get_posts( $post_query, $return_type );
         return $_posts;
     }
 
@@ -111,7 +111,7 @@ class Posts {
             'offset'         => self::$offset,
             'post__not_in'   => $excluded_post_ids,
         ) );
-        $_posts = self::get_posts( $post_query, $return_type );
+        $_posts = static::get_posts( $post_query, $return_type );
         return $_posts;
     }
 
@@ -124,7 +124,7 @@ class Posts {
             'offset'         => self::$offset,
             'post__not_in'   => $excluded_post_ids,
         ) );
-        $_posts = self::get_posts( $post_query, $return_type );
+        $_posts = static::get_posts( $post_query, $return_type );
         return $_posts;
     }
 
@@ -137,7 +137,7 @@ class Posts {
             'offset'         => self::$offset,
             'post__not_in'   => $excluded_post_ids,
         ) );
-        $_posts = self::get_posts( $post_query, $return_type );
+        $_posts = static::get_posts( $post_query, $return_type );
         return $_posts;
     }
 
@@ -150,7 +150,7 @@ class Posts {
             'offset'         => self::$offset,
             'post__not_in'   => $excluded_post_ids,
         ) );
-        $_posts = self::get_posts( $post_query, $return_type );
+        $_posts = static::get_posts( $post_query, $return_type );
         return $_posts;
     }
 
@@ -163,7 +163,7 @@ class Posts {
             'offset'         => self::$offset,
             'post__not_in'   => $excluded_post_ids,
         ) );
-        $_posts = self::get_posts( $post_query, $return_type );
+        $_posts = static::get_posts( $post_query, $return_type );
         return $_posts;
     }
 
@@ -176,7 +176,7 @@ class Posts {
             'offset'         => self::$offset,
             'post__not_in'   => $excluded_post_ids,
         ) );
-        $_posts = self::get_posts( $post_query, $return_type );
+        $_posts = static::get_posts( $post_query, $return_type );
         return $_posts;
     }
 

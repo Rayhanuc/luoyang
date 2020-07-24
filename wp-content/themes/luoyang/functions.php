@@ -79,10 +79,8 @@ function lwhhl_scripts(){
 add_action('wp_enqueue_scripts','lwhhl_scripts');
 
 
-
-/* <!--basic scripts-->
-<script src="assets/vendor/visible.js"></script>
-<script src="assets/vendor/jquery.easing.1.3.js"></script>
-
-<!--basic scripts initialization-->
-<script src="assets/js/scripts.js"></script> */
+function lwhhl_content($content){
+    $content = str_replace('<p',"<p class='text-muted mb-4 font-size-20' ",$content);
+    return $content;
+}
+add_filter('the_content','lwhhl_content');

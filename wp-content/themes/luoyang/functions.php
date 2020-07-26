@@ -5,7 +5,7 @@
 // use HasinHayder\WPHelper\Modules\SinglePost;
 
 require_once "inc/wphelper/vendor/autoload.php";
-require_once get_theme_file_path( 'inc/customizer/kirki_installer.php' );
+// require_once get_theme_file_path( 'inc/customizer/kirki_installer.php' );
 // require_once get_theme_file_path( 'inc/customizer/config.php' );
 
 function lwhhb_theme_init() {
@@ -49,8 +49,7 @@ function lwhhb_theme_init() {
 		)
 	);
 
-	add_image_size('lwhh-featured-post',1220,664,true);
-	add_image_size('lwhh-post-thumb',768,504,true);
+	add_image_size('luoyang-portfolio',800,9999);
 }
 
 add_action('after_setup_theme','lwhhb_theme_init');
@@ -64,7 +63,7 @@ function lwhhl_scripts(){
     wp_enqueue_style('owlcarousel-css',get_theme_file_uri('assets/vendor/owl/assets/owl.carousel.min.css'));
     wp_enqueue_style('owlcarousel-assets-css',get_theme_file_uri('assets/vendor/owl/assets/owl.theme.default.min.css'));
     wp_enqueue_style('luoyang-css',get_theme_file_uri('assets/css/main.css'));
-    wp_enqueue_style('luoyang-css',get_stylesheet());
+    wp_enqueue_style('luoyang-main-css',get_stylesheet_uri());
 
 
     wp_enqueue_script('imagesloaded-js', get_theme_file_uri('assets/vendor/imagesloaded.js'), array('jquery'), time(), true);

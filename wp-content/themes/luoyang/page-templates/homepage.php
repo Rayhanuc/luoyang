@@ -69,127 +69,41 @@ get_header();
                     <?php } ?>
                 </div>
 
+                <?php
+                CustomPosts::set_post_type('portfolio');
+                $lwhh_portfolio_posts = CustomPosts::get_latest_posts(10);
+                if(count($lwhh_portfolio_posts)>0){
+                ?>
+
                 <div class="portfolio-grid portfolio-masonry portfolio-gallery grid-3 gutter">
-                    <div class="portfolio-item cat1 cat3 cat5">
-                        <a href="<?php echo get_stylesheet_directory_uri();?>/assets/img/portfolio/masonry/1.jpg" class="portfolio-image popup-gallery" title="OnePlus Product">
-                            <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/portfolio/masonry/1.jpg" alt=""/>
+                    <?php
+                    foreach($lwhh_portfolio_posts as $lwhh_portfolio_post){
+                        $lwhh_portfolio_image = get_the_post_thumbnail_url($lwhh_portfolio_post->ID, 'luoyang-portfolio');
+                        $lwhh_portfolio_tags = SinglePost::get_terms('ptag',$lwhh_portfolio_post->ID,0,WPHELPER_TAXONOMY_ARRAY);
+                        $lwhh_portfolio_tags = join(' ',array_column($lwhh_portfolio_tags,'slug'));
+                        // WPHelper::dump($lwhh_portfolio_tags);
+
+                    ?>
+                    <div class="portfolio-item <?php echo esc_attr($lwhh_portfolio_tags);?>">
+                        <a href="<?php echo esc_url($lwhh_portfolio_image);?>" class="portfolio-image popup-gallery" title="OnePlus Product">
+                            <img src="<?php echo esc_url($lwhh_portfolio_image);?>" alt="<?php echo get_the_title($lwhh_portfolio_post->ID);?>"/>
                             <div class="portfolio-hover-title">
                                 <div class="portfolio-content">
-                                    <h6>OnePlus Product</h6>
+                                    <h6><?php echo get_the_title($lwhh_portfolio_post->ID);?></h6>
                                     <div class="portfolio-category">
-                                        <span>Trusted</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="portfolio-item cat2 cat3 cat4">
-                        <a href="<?php echo get_stylesheet_directory_uri();?>/assets/img/portfolio/masonry/2.jpg" class="portfolio-image popup-gallery" title="Multipurpose Template">
-                            <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/portfolio/masonry/2.jpg" alt=""/>
-                            <div class="portfolio-hover-title">
-                                <div class="portfolio-content">
-                                    <h6>Multipurpose Template</h6>
-                                    <div class="portfolio-category">
-                                        <span>For all categories</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="portfolio-item cat1 cat2 cat3">
-                        <a href="<?php echo get_stylesheet_directory_uri();?>/assets/img/portfolio/masonry/3.jpg" class="portfolio-image popup-gallery" title="Gulp Task">
-                            <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/portfolio/masonry/3.jpg" alt=""/>
-                            <div class="portfolio-hover-title">
-                                <div class="portfolio-content">
-                                    <h6>Gulp Task</h6>
-                                    <div class="portfolio-category">
-                                        <span>JavaScript toolkit</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="portfolio-item cat1 cat4">
-                        <a href="<?php echo get_stylesheet_directory_uri();?>/assets/img/portfolio/masonry/4.jpg" class="portfolio-image popup-gallery" title="Sky is the limit">
-                            <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/portfolio/masonry/4.jpg" alt=""/>
-                            <div class="portfolio-hover-title">
-                                <div class="portfolio-content">
-                                    <h6>Sky is the limit</h6>
-                                    <div class="portfolio-category">
-                                        <span>All web</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="portfolio-item cat3 cat5">
-                        <a href="<?php echo get_stylesheet_directory_uri();?>/assets/img/portfolio/masonry/5.jpg" class="portfolio-image popup-gallery" title="Huge Components">
-                            <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/portfolio/masonry/5.jpg" alt=""/>
-                            <div class="portfolio-hover-title">
-                                <div class="portfolio-content">
-                                    <h6>Huge Components</h6>
-                                    <div class="portfolio-category">
-                                        <span>160 + components</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="portfolio-item cat4 cat5">
-                        <a href="<?php echo get_stylesheet_directory_uri();?>/assets/img/portfolio/masonry/6.jpg" class="portfolio-image popup-gallery" title="Full Responsive">
-                            <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/portfolio/masonry/6.jpg" alt=""/>
-                            <div class="portfolio-hover-title">
-                                <div class="portfolio-content">
-                                    <h6>Full Responsive</h6>
-                                    <div class="portfolio-category">
-                                        <span>All Devices</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="portfolio-item cat2 cat3">
-                        <a href="<?php echo get_stylesheet_directory_uri();?>/assets/img/portfolio/masonry/19.jpg" class="portfolio-image popup-gallery" title="Clean Code">
-                            <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/portfolio/masonry/19.jpg" alt=""/>
-                            <div class="portfolio-hover-title">
-                                <div class="portfolio-content">
-                                    <h6>Clean Code</h6>
-                                    <div class="portfolio-category">
-                                        <span>w3c validate</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="portfolio-item cat3 cat4 cat5">
-                        <a href="<?php echo get_stylesheet_directory_uri();?>/assets/img/portfolio/masonry/8.jpg" class="portfolio-image popup-gallery" title="Component Based">
-                            <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/portfolio/masonry/8.jpg" alt=""/>
-                            <div class="portfolio-hover-title">
-                                <div class="portfolio-content">
-                                    <h6>Component Based</h6>
-                                    <div class="portfolio-category">
-                                        <span>Block UI</span>
+                                        <span>T<?php echo get_the_excerpt($lwhh_portfolio_post->ID);?></span>
                                     </div>
                                 </div>
                             </div>
                         </a>
                     </div>
 
-                    <div class="portfolio-item cat1 cat2 cat3">
-                        <a href="<?php echo get_stylesheet_directory_uri();?>/assets/img/portfolio/masonry/11.jpg" class="portfolio-image popup-gallery" title="UI Design">
-                            <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/portfolio/masonry/11.jpg" alt=""/>
-                            <div class="portfolio-hover-title">
-                                <div class="portfolio-content">
-                                    <h6>UI Design</h6>
-                                    <div class="portfolio-category">
-                                        <span>Multipurpose</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    <?php } ?>
 
                 </div>
+                <?php 
+                }
+                ?>
             </div>
         </div>
     </div>

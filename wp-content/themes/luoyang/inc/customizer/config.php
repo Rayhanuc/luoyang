@@ -22,3 +22,20 @@ KirkiBuilder::add_simple_repeater(
     ],
     3
 );
+
+
+KirkiBuilder::add_section('luoyang_social','luoyang_panel','Social Links');
+KirkiBuilder::add_simple_field('text','social_heading','luoyang_social','Heading');
+KirkiBuilder::add_simple_repeater(
+    'luoyang_socials',
+    'luoyang_social',
+    'Social Links',
+    'Social Link',
+    'Add Links',
+    [
+        ['id'=>'label','type'=>'text','label'=>'Label'],
+        ['id'=>'url','type'=>'text','label'=>'Url'],
+    ],
+    4
+);
+

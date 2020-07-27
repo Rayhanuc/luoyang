@@ -27,19 +27,29 @@
     </div>
 </footer>
 <!--footer end-->
+<?php
+$lwhhl_social_links = get_theme_mod('luoyang_socials',[]);
 
+if(count($lwhhl_social_links)>0) {
+?>
 <!--supportive links start-->
 <div class="floating-social-link">
-    <span>Follow</span>
-    <a href="#">Facebook</a>
+    <span><?php echo esc_html(get_theme_mod('social_heading','Follow')); ?></span>
+    <?php
+    foreach($lwhhl_social_links as $lwhhl_sl){
+    ?>
+    <a target="_blank" href="<?php echo esc_url($lwhhl_sl['url']) ;?>">
+        <?php echo esc_html($lwhhl_sl['label']) ;?>
+    </a>
     .
-    <a href="#">Twitter</a>
-    .
-    <a href="#">Instagram</a>
-    .
+    <?php
+    }
+    ?>
 </div>
 <!--supportive links end-->
-
+<?php
+}
+?>
 <!--basic scripts-->
 <?php 
 wp_footer();

@@ -32,15 +32,11 @@
                     <div class="toggle-wrap" id="nav_toggle"> <span class="top"></span> <span class="middle"></span> <span class="bottom"></span> </div>
                     <div class="overlay" id="nav_overlay">
                         <nav>
-                            <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="portfolio.html">Portfolio</a></li>
-                                <li><a href="blog-list.html">Blog List</a></li>
-                                <li><a href="blog-single.html">Blog Single</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                                <li><a href="utility-404.html">404 Error</a></li>
-                            </ul>
+                            <?php
+                            wp_nav_menu([
+                                'theme_location' => 'primary'
+                            ])
+                            ?>
                             <div class="overlay-nav-social-link">
                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                                 <a href="#"><i class="fab fa-twitter"></i></a>

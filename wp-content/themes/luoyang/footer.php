@@ -20,13 +20,13 @@
                 <p class="font-size-14"><span class="text-muted">© 2019-2020. All right reserved.</span></p>
             </div>
             <div class="col-md-5 mb-md-0 mb-4">
-                <ul class="social-media-list two-col-link">
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Works</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms & Condition</a></li>
-                </ul>
+                <!-- <ul class="social-media-list two-col-link"> -->
+                <?php
+                wp_nav_menu([
+                    'theme_location' => 'footer',
+                    'menu_class' => 'social-media-list two-col-link'
+                ])
+                ?>
             </div>
             <div class="col-md-1">
                 <a href="#" class="go-up-link">

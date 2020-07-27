@@ -5,7 +5,7 @@ require_once "inc/customizer/config.php";
 
 
 function lwhhl_theme_init() {
-	load_theme_textdomain( 'lwhhb', get_template_directory().'/languages' );
+	load_theme_textdomain( 'lwhhl', get_template_directory().'/languages' );
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
@@ -37,7 +37,8 @@ function lwhhl_theme_init() {
 
 	register_nav_menus(
 		array(
-			'primary' => __( 'Primary', 'lwhhb' ),			
+			'primary' => __( 'Primary', 'lwhhl' ),			
+			'footer' => __( 'Footer', 'lwhhl' ),			
 		)
 	);
 

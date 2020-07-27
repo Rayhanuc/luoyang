@@ -4,8 +4,18 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-6 mb-md-0 mb-4">
-                <h4>Get in touch</h4>
-                <p>testmail@testmail.net</p>
+                <div class="lwhh_logo">
+                <?php
+                the_custom_logo();
+                if(!has_custom_logo()) {
+                ?>
+                <a class="" href="<?php echo home_url();?>">
+                    <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/logo.png" srcset="<?php echo get_stylesheet_directory_uri();?>/assets/img/logo@2x.png 2x" alt="OnePlus">
+                </a>
+                <?php
+                }
+                ?>
+                </div>
                 <br>
                 <p class="font-size-14"><span class="text-muted">© 2019-2020. All right reserved.</span></p>
             </div>

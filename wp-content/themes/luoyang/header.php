@@ -14,10 +14,17 @@
         <div class="row align-items-center">
             <div class="col-12">
                 <!--brand start-->
-                <div class="navbar-brand float-left">
-                    <a class="" href="index.html">
+                <div class="navbar-brand float-left lwhh_logo">
+                    <?php
+                    the_custom_logo();
+                    if(!has_custom_logo()) {
+                    ?>
+                    <a class="" href="<?php echo home_url();?>">
                         <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/logo.png" srcset="<?php echo get_stylesheet_directory_uri();?>/assets/img/logo@2x.png 2x" alt="OnePlus">
                     </a>
+                    <?php
+                    }
+                    ?>
                 </div>
                 <!--brand end-->
                 <!--overlay menu start-->

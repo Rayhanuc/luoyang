@@ -14,3 +14,8 @@ Text Domain: lwhhb
 Tags: one-column, flexible-header, accessibility-ready, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, rtl-language-support, sticky-post, threaded-comments, translation-ready
 
  */
+
+ .lwhh_logo img{
+     width: 127px;
+     height: auto;
+ }

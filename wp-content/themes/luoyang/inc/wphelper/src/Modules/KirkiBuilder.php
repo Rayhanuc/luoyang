@@ -168,6 +168,34 @@ class KirkiBuilder {
 
         }
     }
+    static function add_simple_repeater( $field_id, $section_id, $title, $row_title = 'Select Item', $button_label = 'Add Item', $fields=[], $limit = 3, $priority = 10, $active_callback = null ) {
+        if ( class_exists( 'Kirki' ) ) {
+            $textdomain = WPHelper::get_textdomain();
+            $config = array(
+                'type'         => 'repeater',
+                'settings'     => $field_id,
+                'label'        => esc_html__( $title, $textdomain ),
+                'section'      => $section_id,
+                'priority'     => $priority,
+                'row_label'    => array(
+                    'type'  => 'field',
+                    'value' => esc_html__( $row_title, $textdomain ),
+                ),
+                'default'=>[],
+                'button_label' => esc_html__( $button_label, $textdomain ),
+                'settings'     => $field_id,
+                'choices'      => array(
+                    'limit' => $limit,
+                ),
+                'fields'       => array_column($fields,null,'id'),
+            );
+            if ( $active_callback ) {
+                $config['active_callback'] = $active_callback;
+            }
+            \Kirki::add_field( self::get_theme_config(), $config );
+
+        }
+    }
 
     static function add_category_repeater_field( $field_id, $section_id, $title, $row_title = 'Select Item', $button_label = 'Add Item', $choices = array(), $limit = 3, $priority = 10, $active_callback = null ) {
         if ( class_exists( 'Kirki' ) ) {

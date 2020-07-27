@@ -1,21 +1,17 @@
 <?php
-
-// use HasinHayder\WPHelper\Modules\NavMenu;
-// use HasinHayder\WPHelper\Modules\Metabox;
-// use HasinHayder\WPHelper\Modules\SinglePost;
-
 require_once "inc/wphelper/vendor/autoload.php";
-// require_once get_theme_file_path( 'inc/customizer/kirki_installer.php' );
-// require_once get_theme_file_path( 'inc/customizer/config.php' );
+require_once "inc/customizer/kirki_installer.php";
+require_once "inc/customizer/config.php";
 
-function lwhhb_theme_init() {
+
+function lwhhl_theme_init() {
 	load_theme_textdomain( 'lwhhb', get_template_directory().'/languages' );
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'customize-selective-refresh-widgets' );
 	add_theme_support( 'editor-styles' );
-	add_theme_support( 'post-formats', array('gallery','video','audio') );
+	add_theme_support( 'post-formats', array('video') );
 	add_theme_support(
 		'html5',
 		array(
@@ -41,18 +37,14 @@ function lwhhb_theme_init() {
 
 	register_nav_menus(
 		array(
-			'primary' => __( 'Primary', 'lwhhb' ),
-			'top' => __( 'Top Menu', 'lwhhb' ),
-			'footer-1' => __( 'Footer Menu 1', 'lwhhb' ),
-			'footer-2' => __( 'Footer Menu 2', 'lwhhb' ),
-			'footer-3' => __( 'Footer Menu 3', 'lwhhb' ),
+			'primary' => __( 'Primary', 'lwhhb' ),			
 		)
 	);
 
 	add_image_size('luoyang-portfolio',800,9999);
 }
 
-add_action('after_setup_theme','lwhhb_theme_init');
+add_action('after_setup_theme','lwhhl_theme_init');
 
 function lwhhl_scripts(){
     wp_enqueue_style('luoyang-google-fonts','//fonts.googleapis.com/css2?family=Heebo:wght@300;400&family=Playfair+Display:wght@400;500;700&display=swap');

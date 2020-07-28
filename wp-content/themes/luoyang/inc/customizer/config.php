@@ -39,3 +39,9 @@ KirkiBuilder::add_simple_repeater(
     4
 );
 
+// About page custom field
+KirkiBuilder::add_section('luoyang_about','luoyang_panel','About Us','',20,function(){
+    return is_page_template('page-templates/about-us.php');
+});
+KirkiBuilder::add_simple_field('text','luoyang_sub_heading_1','luoyang_about','Sub Heading 1');
+

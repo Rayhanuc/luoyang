@@ -4,6 +4,7 @@
 Template Name: About Us
 
  */
+the_post();
 get_header();
 
 ?>
@@ -16,13 +17,19 @@ get_header();
             <div class="col-md-8">
                 <!-- heading -->
                 <h1 class="mb-5">
-                    About us
+                    <?php
+                    the_title();
+                    ?>
                 </h1>
 
                 <!-- subheading -->
-                <p class="text-muted mb-4 font-size-20">
+                <!-- <p class="text-muted mb-4 font-size-20">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eligendi fugiat labore libero molestias provident quae quaerat quis! Aspernatur at enim excepturi facere in non reiciendis soluta totam, voluptas voluptate!
-                </p>
+                </p> -->
+
+                <?php
+                the_content();
+                ?>
             </div>
         </div>
     </div>
@@ -33,7 +40,9 @@ get_header();
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <img class="img-fluid rounded" src="assets/img/about.jpg" alt="">
+                <?php
+                the_post_thumbnail('large');
+                ?>
             </div>
         </div>
     </div>
@@ -43,30 +52,52 @@ get_header();
     <div class="container">
         <div class="row justify-content-between align-items-center">
             <div class="col-md-8 mb-lg-5 mb-4">
-                <h6>Concept</h6>
-                <h2 class="mb-4">We are here to solve your problem and delivery your needs</h2>
+                <h6><?php echo esc_html(get_theme_mod('luoyang_sub_heading_1'))?></h6>
+                <h2 class="mb-4"><?php echo esc_html(get_theme_mod('luoyang_sub_heading_2'))?></h2>
             </div>
             <div class="col-md-6">
-                <h4>Mission</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eligendi fugiat labore libero
-                    molestias provident quae quaerat quis! Aspernatur at enim excepturi facere in non reiciendis soluta
-                    totam, voluptas voluptate!</p>
+                <h4><?php echo esc_html(get_theme_mod('luoyang_left_section_title'))?></h4>
+                <?php echo apply_filters('the_content',get_theme_mod('luoyang_left_section_desc'));?>
+                <?php
+                if(get_theme_mod('luoyang_left_section_options')){
+                    $lwhhl_options = explode("\n", get_theme_mod('luoyang_left_section_options'));
+                ?>
                 <ul class="list-unstyled text-muted">
-                    <li><i class="vl-minus font-size-12 pr-3 pb-0"></i>Nunc placerat mi id nam laoreet urna</li>
-                    <li><i class="vl-minus font-size-12 pr-3 pb-0"></i>Praesent pharetra, justo ut </li>
-                    <li><i class="vl-minus font-size-12 pr-3 pb-0"></i>Leo quam aliquet diam</li>
+                    <?php
+                    foreach($lwhhl_options as $lwhhl_option){
+                    ?>
+                    <li><i class="vl-minus font-size-12 pr-3 pb-0"></i>
+                    <?php echo esc_html($lwhhl_option);?>
+                    </li>
+                    <?php
+                    }
+                    ?>
                 </ul>
+
+                <?php } ?>
+
+
             </div>
             <div class="col-md-6">
-                <h4>Vission</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eligendi fugiat labore libero
-                    molestias provident quae quaerat quis! Aspernatur at enim excepturi facere in non reiciendis soluta
-                    totam, voluptas voluptate!</p>
+            <h4><?php echo esc_html(get_theme_mod('luoyang_right_section_title'))?></h4>
+                <?php echo apply_filters('the_content',get_theme_mod('luoyang_right_section_desc'));?>
+                <?php
+                if(get_theme_mod('luoyang_right_section_options')){
+                    $lwhhl_options = explode("\n", get_theme_mod('luoyang_right_section_options'));
+                ?>
                 <ul class="list-unstyled text-muted">
-                    <li><i class="vl-minus font-size-12 pr-3 pb-0"></i>Nunc placerat mi id nam laoreet urna</li>
-                    <li><i class="vl-minus font-size-12 pr-3 pb-0"></i>Praesent pharetra, justo ut </li>
-                    <li><i class="vl-minus font-size-12 pr-3 pb-0"></i>Leo quam aliquet diam</li>
+                    <?php
+                    foreach($lwhhl_options as $lwhhl_option){
+                    ?>
+                    <li><i class="vl-minus font-size-12 pr-3 pb-0"></i>
+                    <?php echo esc_html($lwhhl_option);?>
+                    </li>
+                    <?php
+                    }
+                    ?>
                 </ul>
+
+                <?php } ?>
             </div>
         </div>
     </div>
@@ -108,8 +139,8 @@ get_header();
     <div class="container">
         <div class="row justify-content-between align-items-center">
             <div class="col-md-6 mb-lg-5 mb-4">
-                <h6>Our Team</h6>
-                <h2 class="mb-4">We have a dynamic and genius team to serve you </h2>
+                <h6><?php echo esc_html(get_theme_mod('luoyang_team_section_subheading'));?></h6>
+                <h2 class="mb-4"><?php echo esc_html(get_theme_mod('luoyang_team_section_heading'));?> </h2>
             </div>
             <div class="col-md-12">
                 <div class="owl-carousel owl-theme dot-style-2 nav-circle" data-items="[4,2]" data-margin="20" data-nav="true" data-dots="true">

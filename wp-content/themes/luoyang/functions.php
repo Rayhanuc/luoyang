@@ -3,6 +3,7 @@ require_once "inc/wphelper/vendor/autoload.php";
 require_once "inc/customizer/kirki_installer.php";
 require_once "inc/customizer/config.php";
 
+use HasinHayder\WPHelper\Modules\SinglePost;
 
 function lwhhl_theme_init() {
 	load_theme_textdomain( 'lwhhl', get_template_directory().'/languages' );
@@ -112,3 +113,14 @@ function lwhhl_paginate_links($mid_size=3) {
 add_filter('get_the_excerpt', function($excerpt){
     return wp_trim_words($excerpt, 30, null);
 });
+
+
+function lwhhl_display_categories(){
+    $categories = SinglePost::get_categories(null,0,WPHELPER_TAXONOMY_LIST_LINK);
+    echo join('',$categories);
+}
+function lwhhl_display_tags(){
+    $tags = join('',SinglePost::get_tags(null,WPHELPER_TAXONOMY_LINK));
+    $tags = str_replace('<a','<a class="badge badge-pill badge-dark"', $tags);
+    echo $tags;
+}

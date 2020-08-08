@@ -77,3 +77,38 @@ function lwhhl_content($content){
     return $content;
 }
 add_filter('the_content','lwhhl_content');
+
+
+
+function lwhhl_paginate_links($mid_size=3) {
+	global $wp_query;
+	$big = 999999999; // need an unlikely integer
+	$links = paginate_links(array(
+		'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+		'format' => '?paged=%#%',
+		'current' => max(1, get_query_var('paged')),
+		'total' => $wp_query->max_num_pages,
+		'type' => 'array',
+		'prev_nex' => true,
+		'prev_text' => '<i class="fa fa-angle-double-left"></i> newer posts',
+		'next_text' => 'older posts <i class="fa fa-angle-double-right"></i>',
+		'mid_size' => $mid_size
+
+	));
+
+	if ($links) {
+		foreach ($links as $link) {
+			if (strpos($link, "current") !== false) {
+				echo "<i class='page-item disabled active'><a class='page-link' href='#'>".$link."</a></i>";
+			}else {
+				$link = str_replace('page-numbers','page-link',$link);
+				echo '<li class="page-item">'.$link."</li>\n";
+			}
+		}
+	}
+
+}
+
+add_filter('get_the_excerpt', function($excerpt){
+    return wp_trim_words($excerpt, 30, null);
+});

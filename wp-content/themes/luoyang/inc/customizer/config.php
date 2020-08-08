@@ -68,3 +68,13 @@ KirkiBuilder::add_simple_repeater('luoyang_team_members',
     10
 );
 
+KirkiBuilder::add_section('luoyang_contact','luoyang_panel','Contact Us','',20,function(){
+    return is_page_template('page-templates/contact-us.php');
+});
+
+KirkiBuilder::add_simple_field('text','luoyang_cleft_section_title','luoyang_contact','Left Section Title');
+KirkiBuilder::add_simple_field('textarea','luoyang_cleft_section_desc','luoyang_contact','Left Section Description');
+KirkiBuilder::add_simple_field('text','luoyang_cleft_section_icon','luoyang_contact','Left Section Icon');
+KirkiBuilder::add_simple_field('text','luoyang_cright_section_title','luoyang_contact','Right Section Title');
+KirkiBuilder::add_simple_field('textarea','luoyang_cright_section_desc','luoyang_contact','Right Section Description');
+KirkiBuilder::add_simple_field('text','luoyang_cright_section_icon','luoyang_contact','Right Section Icon');

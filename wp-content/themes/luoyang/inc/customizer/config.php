@@ -61,9 +61,10 @@ KirkiBuilder::add_simple_repeater('luoyang_team_members',
     [
         ['id'=>'name','type'=>'text','label'=>'Name'],
         ['id'=>'designation','type'=>'text','label'=>'Designation'],
-        ['id'=>'photo','type'=>'text','label'=>'Photo'],
+        ['id'=>'photo','type'=>'image','label'=>'Photo'],
         ['id'=>'facebook','type'=>'text','label'=>'Facebook URL'],
         ['id'=>'twitter','type'=>'text','label'=>'Twitter URL']
-    ]
+    ],
+    10
 );
 

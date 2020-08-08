@@ -134,6 +134,10 @@ get_header();
 </div>
 <!--services end-->
 
+<?php
+$luoyang_team_members = get_theme_mod('luoyang_team_members',[]);
+if(count($luoyang_team_members)>0) {
+?>
 <!--team start-->
 <div class="section-gap border-bottom">
     <div class="container">
@@ -144,95 +148,28 @@ get_header();
             </div>
             <div class="col-md-12">
                 <div class="owl-carousel owl-theme dot-style-2 nav-circle" data-items="[4,2]" data-margin="20" data-nav="true" data-dots="true">
+                    <?php
+                    foreach($luoyang_team_members as $lt){
+                        $lt_image = wp_get_attachment_image_url($lt['photo'],'luoyang-team');
+                    ?>
                     <div class="item">
                         <div class="team-hover card border-0">
-                            <img class="card-img rounded" src="assets/img/team/t-1.jpg" alt="" />
+                            <img class="card-img rounded" src="<?php echo esc_url($lt_image);?>" alt="" />
                             <div class="team-info">
                                 <div class="team-title">
-                                    <h6>Arnold Niditsch	</h6>
-                                    <p>Chief Executive Officer</p>
+                                    <h6><?php echo esc_html($lt['name']);?></h6>
+                                    <p><?php echo esc_html($lt['designation']);?></p>
                                 </div>
                                 <div class="team-social-links">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                                    <a href="#"><i class="fab fa-dribbble"></i></a>
+                                    <a target="_blank" href="<?php echo esc_url($lt['facebook']);?>"><i class="fab fa-facebook-f"></i></a>
+                                    <a target="_blank" href="<?php echo esc_url($lt['twitter']);?>"><i class="fab fa-twitter"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="item">
-                        <div class="team-hover card border-0">
-                            <img class="card-img rounded" src="assets/img/team/t-2.jpg" alt="" />
-                            <div class="team-info">
-                                <div class="team-title">
-                                    <h6>Sharron Berry</h6>
-                                    <p>Project Manager</p>
-                                </div>
-                                <div class="team-social-links">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                                    <a href="#"><i class="fab fa-dribbble"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="team-hover card border-0">
-                            <img class="card-img rounded" src="assets/img/team/t-3.jpg" alt="" />
-                            <div class="team-info">
-                                <div class="team-title">
-                                    <h6>Thomas Johnson</h6>
-                                    <p>HR Manager</p>
-                                </div>
-                                <div class="team-social-links">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                                    <a href="#"><i class="fab fa-dribbble"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="team-hover card border-0">
-                            <img class="card-img rounded" src="assets/img/team/t-4.jpg" alt="" />
-                            <div class="team-info">
-                                <div class="team-title">
-                                    <h6>Juliana Lane</h6>
-                                    <p>Lead Designer</p>
-                                </div>
-                                <div class="team-social-links">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                                    <a href="#"><i class="fab fa-dribbble"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="team-hover card border-0">
-                            <img class="card-img rounded" src="assets/img/team/t-2.jpg" alt="" />
-                            <div class="team-info">
-                                <div class="team-title">
-                                    <h6>Jhone Doe</h6>
-                                    <p>Business Developer</p>
-                                </div>
-                                <div class="team-social-links">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                                    <a href="#"><i class="fab fa-dribbble"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                    }
+                    ?>
 
                 </div>
             </div>
@@ -241,6 +178,9 @@ get_header();
 </div>
 <!--team end-->
 
+<?php
+}
+?>
 
 
 

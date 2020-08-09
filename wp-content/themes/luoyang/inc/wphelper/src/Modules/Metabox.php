@@ -125,10 +125,11 @@ class Metabox {
 
 	private static function render_select_field( $id, $title, $choices ) {
 		$_id = "wphelper_{$id}";
+		$width = self::get_context()=='side'?'85%':'100%';
 		?>
         <p>
             <label for="<?php echo esc_attr( $_id ); ?>"><?php _e( "{$title}", self::get_textdomain() ); ?></label><br>
-            <select name="<?php echo esc_attr( $_id ); ?>" id="<?php echo esc_attr( $_id ); ?>" style="width:100%">
+            <select name="<?php echo esc_attr( $_id ); ?>" id="<?php echo esc_attr( $_id ); ?>" style="width:<?php echo esc_attr($width) ;?>">
                 <option vallue=''><?php _e( 'Select an option', self::get_textdomain() ); ?></option>
 				<?php
 				$selected_value = self::wphelper_get_meta( $_id );

@@ -2,6 +2,7 @@
 require_once "inc/wphelper/vendor/autoload.php";
 require_once "inc/customizer/kirki_installer.php";
 require_once "inc/customizer/config.php";
+require_once "inc/metaboxes/related-posts.php";
 
 use HasinHayder\WPHelper\Modules\SinglePost;
 
@@ -124,3 +125,12 @@ function lwhhl_display_tags(){
     $tags = str_replace('<a','<a class="badge badge-pill badge-dark"', $tags);
     echo $tags;
 }
+
+function lwhhl_comment_fields($fields) {
+    $comment_field = $fields['comment'];
+    unset( $fields['comment'] );
+    unset($fields);
+    $fields['comment'] = $comment_field;
+    return $fields;
+}
+add_filter('comment_form_fields','lwhhl_comment_fields');

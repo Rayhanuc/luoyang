@@ -1,21 +1,23 @@
-<?php 
+<?php
 namespace HasinHayder\WPHelper\OutputProcessors;
-class TaxonomyOutputProcessor{
+class TaxonomyOutputProcessor {
     public static function category_output( $resultset, $return_type = WPHELPER_TAXONOMY_NAME ) {
         $_categories = array();
-        foreach ( $resultset as $result ) {
-            if ( $return_type == WPHELPER_TAXONOMY_NAME ) {
-                $_categories[$result->term_id] = $result->name;
-            } elseif ( $return_type == WPHELPER_TAXONOMY_LIST ) {
-                $_categories[$result->term_id] = sprintf( "<li>%s</li>", $result->name );
-            } elseif ( $return_type == WPHELPER_TAXONOMY_LIST_LINK ) {
-                $_categories[$result->term_id] = sprintf( "<li><a href='%s'>%s</a></li>", get_term_link( $result->term_id ), $result->name );
-            } elseif ( $return_type == WPHELPER_TAXONOMY_LINK ) {
-                $_categories[$result->term_id] = sprintf( "<a href='%s'>%s</a>", get_term_link( $result->term_id ), $result->name );
-            } elseif ( $return_type == WPHELPER_TAXONOMY_OBJECT ) {
-                $_categories[$result->term_id] = $result;
-            } elseif ( $return_type == WPHELPER_TAXONOMY_ARRAY ) {
-                $_categories[$result->term_id] = (array) $result;
+        if ( is_array( $resultset ) ) {
+            foreach ( $resultset as $result ) {
+                if ( $return_type == WPHELPER_TAXONOMY_NAME ) {
+                    $_categories[$result->term_id] = $result->name;
+                } elseif ( $return_type == WPHELPER_TAXONOMY_LIST ) {
+                    $_categories[$result->term_id] = sprintf( "<li>%s</li>", $result->name );
+                } elseif ( $return_type == WPHELPER_TAXONOMY_LIST_LINK ) {
+                    $_categories[$result->term_id] = sprintf( "<li><a href='%s'>%s</a></li>", get_term_link( $result->term_id ), $result->name );
+                } elseif ( $return_type == WPHELPER_TAXONOMY_LINK ) {
+                    $_categories[$result->term_id] = sprintf( "<a href='%s'>%s</a>", get_term_link( $result->term_id ), $result->name );
+                } elseif ( $return_type == WPHELPER_TAXONOMY_OBJECT ) {
+                    $_categories[$result->term_id] = $result;
+                } elseif ( $return_type == WPHELPER_TAXONOMY_ARRAY ) {
+                    $_categories[$result->term_id] = (array) $result;
+                }
             }
         }
         return $_categories;

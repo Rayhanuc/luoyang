@@ -134,3 +134,20 @@ function lwhhl_comment_fields($fields) {
     return $fields;
 }
 add_filter('comment_form_fields','lwhhl_comment_fields');
+
+function lwhhl_widgets_init() {
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Blog Sidebar', 'lwhhl' ),
+			'id'            => 'blog-sidebar',
+			'description'   => esc_html__( 'Blog Sidebar.', 'lwhhl' ),
+			'before_widget' => '<div id="%1$s" class="widget blog-widget mb-4 %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h6 class="widget-title post-block-title txt-danger">',
+			'after_title'   => '</h6>',
+		)
+	);
+
+}
+add_action( 'widgets_init', 'lwhhl_widgets_init' );

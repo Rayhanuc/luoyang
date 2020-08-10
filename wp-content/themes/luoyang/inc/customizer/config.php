@@ -78,3 +78,6 @@ KirkiBuilder::add_simple_field('text','luoyang_cleft_section_icon','luoyang_cont
 KirkiBuilder::add_simple_field('text','luoyang_cright_section_title','luoyang_contact','Right Section Title');
 KirkiBuilder::add_simple_field('textarea','luoyang_cright_section_desc','luoyang_contact','Right Section Description');
 KirkiBuilder::add_simple_field('text','luoyang_cright_section_icon','luoyang_contact','Right Section Icon');
+
+KirkiBuilder::add_section('luoyang_sidebar','luoyang_panel','Sidebar Settings');
+KirkiBuilder::add_choice_field('switch','luoyang_sidebar_display','luoyang_sidebar','Display Sidebar',[],'on');

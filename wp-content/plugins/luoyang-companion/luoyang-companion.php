@@ -15,6 +15,7 @@ Domain Path: /languages/
 require_once "widgets/search-widget.php";
 require_once "widgets/category-widget.php";
 require_once "widgets/about-widget.php";
+require_once "widgets/latest-post-widget.php";
 
 function luoyang_load_textdomain(){
     load_plugin_textdomain('luoyang-companion', false, dirname(__FILE__)."/languages");
